@@ -11,12 +11,16 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Layout {
 
 	private JFrame frame;
 	private JTextField textField;
+	private JButton btnSayHi;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -62,5 +66,20 @@ public class Layout {
 		textField.setBounds(59, 6, 170, 28);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(6, 81, 438, 16);
+		frame.getContentPane().add(lblNewLabel);
+		
+		btnSayHi = new JButton("Say Hi");
+		btnSayHi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = textField.getText();
+				lblNewLabel.setText("Hi " + name + "!");
+			}
+		});
+		btnSayHi.setBounds(6, 40, 117, 29);
+		frame.getContentPane().add(btnSayHi);
+		
 	}
 }
