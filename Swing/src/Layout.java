@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 
 public class Layout {
@@ -21,6 +22,8 @@ public class Layout {
 	private JTextField textField;
 	private JButton btnSayHi;
 	private JLabel lblNewLabel;
+	private JCheckBox checkbox;
+	private JLabel label;
 
 	/**
 	 * Launch the application.
@@ -80,6 +83,23 @@ public class Layout {
 		});
 		btnSayHi.setBounds(6, 40, 117, 29);
 		frame.getContentPane().add(btnSayHi);
+		
+		label = new JLabel("Off");
+		label.setBounds(26, 146, 61, 16);
+		frame.getContentPane().add(label);
+		
+		checkbox = new JCheckBox("Example");
+		checkbox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//? means then "on"  : means else "off"
+				String text = (checkbox.isSelected()) ? "On" : "Off";
+				label.setText(text);
+			}
+		});
+		checkbox.setBounds(16, 91, 200, 50);
+		frame.getContentPane().add(checkbox);
+		
+		
 		
 	}
 }
